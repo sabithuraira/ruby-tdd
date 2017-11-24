@@ -36,7 +36,9 @@ class Arabic2english
                 return str + "#{name}" if int%num == 0  
                 return str + "#{name} " + int_to_words(int%num)
             elsif int/num > 0
+                return str + int_to_words(int/num) + " #{name} " if int%num == 0  
                 return str + int_to_words(int/num) + " #{name} " + int_to_words(int%num)
+                #+ int_to_words(int%num)
             end
         end
     end

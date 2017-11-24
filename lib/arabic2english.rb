@@ -1,7 +1,7 @@
 
 class Arabic2english
-    def int_to_words(int)
-        numbers_to_name = {
+    def initialize()    
+        @numbers_to_name = {
             1000000 => "million", 1000 => "thousand", 100 => "hundred",
             90 => "ninety",80 => "eighty",70 => "seventy",60 => "sixty",50 => "fifty",
             40 => "forty",30 => "thirty", 20 => "twenty",19=>"nineteen",
@@ -10,14 +10,20 @@ class Arabic2english
             9 => "nine", 8 => "eight", 7 => "seven", 6 => "six", 5 => "five",
             4 => "four",3 => "three",2 => "two", 1 => "one"
         }
-        
+    end
+
+    def is_number(obj)
+        obj.to_s == obj.to_i.to_s
+    end
+
+    def int_to_words(int)
         str = ""
         if int < 0
             str = "minus "
             int = int * -1
         end
 
-        numbers_to_name.each do |num, name|
+        @numbers_to_name.each do |num, name|
             if int == 0
                 if int.to_s.length == 1
                     return "zero"
@@ -38,4 +44,8 @@ end
 
 
 data = Arabic2english.new
-puts data.int_to_words(ARGV[0].to_i)
+if(data.is_number(ARGV[0]))
+    puts data.int_to_words(ARGV[0].to_i)
+else
+    puts ARGV[0] + " is not a number" 
+end

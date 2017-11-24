@@ -12,6 +12,7 @@ class Arabic2english
         }
         
         str = ""
+
         numbers_to_name.each do |num, name|
             if int == 0
                 if int.to_s.length == 1

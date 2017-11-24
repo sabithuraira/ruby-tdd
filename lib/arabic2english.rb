@@ -12,6 +12,10 @@ class Arabic2english
         }
         
         str = ""
+        if int < 0
+            str = "minus "
+            int = int * -1
+        end
 
         numbers_to_name.each do |num, name|
             if int == 0

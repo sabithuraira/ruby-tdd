@@ -14,7 +14,11 @@ class Arabic2english
         str = ""
         numbers_to_name.each do |num, name|
             if int == 0
-                return str
+                if int.to_s.length == 1
+                    return "zero"
+                else
+                    return str
+                end
             elsif int.to_s.length == 1 && int/num > 0
                 return str + "#{name}"   
             elsif int < 100 && int/num > 0
